@@ -25,7 +25,8 @@ namespace AreaCalculator.Models.GeometricObjects
         public double CalculateArea()
         {
             if (IsRightTriangle())
-                return (triangleSideA * triangleSideB) / 2;
+                return triangleSideA * triangleSideB * triangleSideC /
+                    (Math.Max(triangleSideA, Math.Max(triangleSideB, triangleSideC)) * 2);
             else
             {
                 double halfPerimeter = (triangleSideA + triangleSideB + triangleSideC) / 2;
