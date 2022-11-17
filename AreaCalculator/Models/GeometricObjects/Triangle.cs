@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AreaCalculator.MyExtensions;
 
 namespace AreaCalculator.Models.GeometricObjects
 {
@@ -17,10 +18,9 @@ namespace AreaCalculator.Models.GeometricObjects
         }
         bool IsRightTriangle()
         {
-            if ((Math.Pow(triangleSideA, 2) + Math.Pow(triangleSideB, 2) + Math.Pow(triangleSideC, 2)) / 2 ==
-                Math.Pow(Math.Max(triangleSideA, Math.Max(triangleSideB, triangleSideC)), 2))
-                return true;
-            return false;
+            return ((Math.Pow(triangleSideA, 2) + Math.Pow(triangleSideB, 2) +
+                Math.Pow(triangleSideC, 2)) / 2).CompareNumbers
+                (Math.Pow(Math.Max(triangleSideA, Math.Max(triangleSideB, triangleSideC)), 2));
         }
         public double CalculateArea()
         {
